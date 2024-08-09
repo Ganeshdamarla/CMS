@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="latest-news-container">
+    <div class="latest-news-header">
+      <i class="fas fa-newspaper"></i>
+      <h2>{{ 'latestNews.header' | translate }}</h2>
+    </div>
+    <div class="latest-news-body">
+      <div class="news-list" id="newsList">
+        <ul>
+          <li *ngFor="let news of latestNews">
+            <a href="{{ news.url }}" target="_blank">
+              <span class="icon"><i class="fas fa-hand-point-right"></i></span>
+              {{ news.title }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <img style="width: 40%;" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Andhra_Pradesh.png">
+</div>

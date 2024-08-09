@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <div class="logo">
+    <img src="/assets/logo.png" alt="Logo">
+  </div>
+  <div class="nav-items">
+    <a mat-button routerLink="/home">{{ 'navbar.home' | translate }}</a>
+    <a mat-button routerLink="/acts-and-rules">{{ 'navbar.acts & Rules' | translate }}</a>
+    <a mat-button routerLink="/dashboard">{{ 'navbar.dashboard' | translate }}</a>
+    <a mat-button routerLink="/contactus">{{ 'navbar.contactUs' | translate }}</a>
+    <a id="mat" mat-button [matMenuTriggerFor]="loginMenu">{{ 'navbar.login' | translate }}</a>
+    <a id="language" mat-button (click)="switchToLanguage()">{{ getLanguageButtonText() }}</a>
+  </div>
+  
+  <button mat-icon-button class="menu-icon" (click)="toggleNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>    
+
+<mat-menu #loginMenu="matMenu">
+  <button mat-menu-item routerLink="/login">{{ 'navbar.user' | translate }}</button>
+  <button mat-menu-item routerLink="/admin-login">{{ 'navbar.admin' | translate }}</button>
+</mat-menu>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" class="custom-sidenav">
+    <a mat-list-item routerLink="/home" (click)="sidenav.close()">{{ 'navbar.home' | translate }}</a>
+    <a mat-list-item routerLink="/dashboard" (click)="sidenav.close()">{{ 'navbar.dashboard' | translate }}</a>
+    <a mat-list-item routerLink="/contact" (click)="sidenav.close()">{{ 'navbar.contactUs' | translate }}</a>
+    <a mat-list-item [matMenuTriggerFor]="loginMenu" (click)="sidenav.close()">{{ 'navbar.login' | translate }}</a>
+    <a id="language" mat-button (click)="switchToLanguage()">{{ getLanguageButtonText() }}</a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Main content  here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,185 @@
+/* General styles for mat-toolbar */
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  3%; 
+    gap: 5%;
+    background-color: #ffffff;
+    /* background-color: #478356; */
+    /* border-bottom: 1px solid gray; */
+  }
+  
+  /* Logo container styling */
+  .logo {
+    /* flex: 1; */
+    width: 30%;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Logo image styling */
+  .logo img {
+    max-width: 100%; 
+    height: auto; 
+  }
+  
+  /* Navigation items container styling */
+  .nav-items {
+    flex: 1;
+    display: flex;
+    /* width: 60%; */
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 5%;  */
+  }
+  #mat{
+    /* background-color:rgb(15,108,63); */
+    background-color: #1c2d5c;
+    color: white;
+    width: 15%;
+  }
+  
+  /* Individual nav item styling */
+  .nav-items a {
+    color: #838e91; 
+    /* color: black; */
+    font-weight: 600;
+    font-size: 17px; /* Font size for nav items */
+    text-transform: uppercase; /* Optional: transform text to uppercase */
+    text-decoration: none; 
+    position: relative;
+    /* padding: 5px 0;  */
+    transition: color 0.3s ease; 
+  }
+  
+  /* Hover effect for nav items */
+  .nav-items a:hover {
+    color:white;
+    /* background-color: rgb(15,108,63); Text color on hover */
+    background-color: #1c2d5c;
+  }
+  
+  /* Pseudo-element for underline effect */
+  /* .nav-items a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: green; /* Underline color */
+    /* transition: width 0.3s ease; Smooth transition for the underline */
+  /* }  */
+  
+  /* Full width underline on hover */
+  .nav-items a:hover:after {
+    width: 100%;
+  }
+  
+  /* Menu icon styling */
+  .menu-icon {
+    display: none;
+  }
+  .mat-menu-item {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  .mat-menu-item:hover {
+    background-color: green;
+    color: #ffffff;
+  }
+  #telugu{
+    background-color: #01313c;
+    color: white;
+    font-weight: bold;
+  }
+  #telugu:hover{
+    background-color: green;
+    color: #ffffff;
+  }
+  
+  
+  
+  
+  
+  
+  .custom-menu-item:hover {
+    background-color: #01313c;  /* Change background color to rgb(15,108,63) on hover */
+    color: white;             /* Change text color to white on hover */
+  }
+  
+  .custom-sidenav{
+    background-color: #01313c;
+  }
+  .custom-sidenav a {
+    display: block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    color: rgb(255, 255, 255); /* Text color */
+  
+    text-decoration: none;
+  }
+  
+  .custom-sidenav a:hover {
+    /* background-color: white;  */
+    color: white; /* Hover text color */
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 770px) {
+    .custom-sidenav {
+        width: 35%;
+        font-weight: bold; /* Adjust width for small screens */
+    }
+  
+    .custom-sidenav a {
+        padding: 8px 16px; /* Adjust padding for small screens */
+    }
+  }
+  
+  
+  /* Responsive styling for smaller screens */
+  @media (max-width: 770px) {
+    .nav-items {
+      display: none; /* Hide nav items */
+    }
+    .logo {
+        width: 80%;
+        display: flex;
+        justify-content: center; /* Center the logo */
+      }
+  
+    .menu-icon {
+      display: block;
+      color: black; /* Show menu icon */
+    }
+  }
+  
+  /* Responsive styling for extra small screens */
+  @media (max-width: 460px) {
+    mat-toolbar {
+      flex-direction: column; 
+      align-items: flex-start;
+      height: fit-content;
+    }
+  
+    .logo {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Center the logo */
+    }
+  
+    .logo img {
+      max-width: 80%; /* Decrease the size of the logo on smaller screens */
+      height: auto; /* Maintain aspect ratio */
+    }
+  
+    .menu-icon {
+      width: 100%;
+      text-align: right;
+      color: black; 
+      display: inline;
+    }
+  }
+  

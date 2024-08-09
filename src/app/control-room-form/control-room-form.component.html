@@ -1,0 +1,147 @@
+<!-- src/app/control-room-form/control-room-form.component.html -->
+
+<div class="mainform">
+  <form [formGroup]="controlRoomForm" (ngSubmit)="onSubmit()">
+    <div class="logo">
+      <img class="logoimg" src="../../../../assets/logo.png" alt="logo"/>
+    </div>
+    <hr style="width: 100%;">
+    <h1>Control Room Form</h1>
+    <div class="form-row">
+      <div class="form-column">
+        <div class="form-group">
+          <div class="input-container">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;">
+              <div>
+                <div>
+                  <label>Complaint Id</label>
+                  <input matInput formControlName="complaintId" readonly>
+                </div>
+                <div>
+                  <label>Complaint Source</label>
+                  <input matInput formControlName="complaintSource" readonly>
+                </div>
+                <div>
+                  <label>Complainant Name</label>
+                  <input matInput formControlName="complainantName" readonly>
+                </div>
+                <div>
+                  <label>District</label>
+                  <input matInput formControlName="district" readonly>
+                </div>
+                <div>
+                  <label>Mandal</label>
+                  <input matInput formControlName="mandal" readonly>
+                </div>
+                <div>
+                  <label>Village</label>
+                  <input matInput formControlName="village" readonly>
+                </div>
+                <div>
+                  <label>Complaint Details</label>
+                  <textarea matInput formControlName="complaintDetails" rows="4" readonly></textarea>
+                </div>
+                <div>
+                  <label>Attachments</label>
+                  <input matInput formControlName="attachments" readonly>
+                  <!-- Assuming you have a way to download attachments -->
+                  <!-- You can provide a download link or button here -->
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label>Status</label>
+                  <select formControlName="status">
+                    <option *ngFor="let status of statusOptions" [value]="status">
+                      {{ status }}
+                    </option>
+                  </select>
+                  <div *ngIf="controlRoomForm.get('status')?.touched && controlRoomForm.get('status')?.invalid" class="error-message">
+                    Status is required
+                  </div>
+                </div>
+                <div>
+                  <label>Reason</label>
+                  <select formControlName="reason">
+                    <option *ngFor="let reason of reasonOptions" [value]="reason">
+                      {{ reason }}
+                    </option>
+                  </select>
+                  <div *ngIf="controlRoomForm.get('reason')?.touched && controlRoomForm.get('reason')?.invalid" class="error-message">
+                    Reason is required when status is invalid
+                  </div>
+                </div>
+                <div>
+                  <label>Complaint Type</label>
+                  <select formControlName="complaintType">
+                    <option *ngFor="let type of complaintTypeOptions" [value]="type">
+                      {{ type }}
+                    </option>
+                  </select>
+                  <div *ngIf="controlRoomForm.get('complaintType')?.touched && controlRoomForm.get('complaintType')?.invalid" class="error-message">
+                    Complaint Type is required
+                  </div>
+                </div>
+                <div *ngIf="controlRoomForm.get('complaintType')?.value === 'A4 Shop Violation'">
+                  <label>A4 Shop Violation</label>
+                  <select formControlName="a4ShopViolation">
+                    <option *ngFor="let option of a4ShopViolationOptions" [value]="option">
+                      {{ option }}
+                    </option>
+                  </select>
+                  <div *ngIf="controlRoomForm.get('a4ShopViolation')?.touched && controlRoomForm.get('a4ShopViolation')?.invalid" class="error-message">
+                    A4 Shop Violation details are required
+                  </div>
+                </div>
+                <div *ngIf="controlRoomForm.get('complaintType')?.value === '2B Violation'">
+                  <label>2B Violation</label>
+                  <select formControlName="twoBViolation">
+                    <option *ngFor="let option of twoBViolationOptions" [value]="option">
+                      {{ option }}
+                    </option>
+                  </select>
+                  <div *ngIf="controlRoomForm.get('twoBViolation')?.touched && controlRoomForm.get('twoBViolation')?.invalid" class="error-message">
+                    2B Violation details are required
+                  </div>
+                </div>
+                <div>
+                  <label>Assigned To</label>
+                  <select formControlName="assignedTo">
+                    <option *ngFor="let assign of assignedToOptions" [value]="assign.value">
+                      {{ assign.label }}
+                    </option>
+                  </select>
+                  <div *ngIf="controlRoomForm.get('assignedTo')?.touched && controlRoomForm.get('assignedTo')?.invalid" class="error-message">
+                    Assigned To is required
+                  </div>
+                </div>
+                <div>
+                  <label>Time Stamp</label>
+                  <input matInput formControlName="timeStamp" readonly>
+                </div>
+                <div>
+                  <label>ATR Preliminary Submitted</label>
+                  <input matInput formControlName="atr" placeholder="ATR details if any">
+                </div>
+                <div>
+                  <label>ATR Upload</label>
+                  <input type="file" matInput formControlName="atrUpload">
+                </div>
+                <div>
+                  <label>Feedback</label>
+                  <textarea matInput formControlName="feedback" rows="4"></textarea>
+                  <div *ngIf="controlRoomForm.get('feedback')?.touched && controlRoomForm.get('feedback')?.invalid" class="error-message">
+                    Feedback is required
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,159 @@
+div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, mat-select, textarea, button {
+    width: 100%;
+  }
+  .mainform{
+    background: linear-gradient(-45deg, #2F174F 50%, #eee 50%) 0% 0%/100% 100%,
+    linear-gradient(45deg, #eee 50%, #2F174F 50%) 0% 0%/100% 100%;
+    padding: 5%;
+  }
+  .logoimg{
+    height: 100%;
+    width: 100%;
+}
+.logo{
+/* margin: 20px 0 10px 0; */
+/* background-color: rgb(29,135,69); */
+border: none;
+color: white;
+font-size: 15px;
+font-weight: 500;
+border-radius: 10px;
+/* height: 50px; */
+/* text-align: center;
+align-content: center; */
+width: 30%;
+}
+.watermark{
+  text-align: center;
+  align-content: center;
+  margin-top: 20px;
+}
+.watermark span{
+  color: rgb(29,135,69);
+}
+ form{
+  max-width: 800px;
+  margin:  auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  
+  box-shadow: 20px 20px 100px 0 rgba(0, 0, 0, 0.1);
+ }
+ .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+}
+.form-column {
+  flex: 1;
+  padding: 10px;
+}
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+/* .input-container input{
+  width: 70%;
+} */
+.input-container input,
+.input-container select,
+.input-container textarea {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  margin-top: 1%;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.input-container input:focus,
+.input-container select:focus,
+.input-container textarea:focus {
+  border-bottom-color: navy;
+  outline: none;
+}
+.input-container {
+  position: relative;
+  margin-bottom: 40px; 
+ } 
+
+
+.input-container label {
+  /* position: absolute; */
+  left: 10px;
+  top: 10px;
+  color: black;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-container input.active + label,
+.input-container select.active + label,
+.input-container textarea.active + label,
+.input-container input:focus + label,
+.input-container select:focus + label,
+.input-container textarea:focus + label {
+  top: -20px;
+  left: 10px;
+  font-size: 14px; /* Increased font size when label moves to top */
+  color: navy;
+}
+
+button {
+  display: block;
+  height: 50px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: rgb(103,193,244);
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(83,163,204);
+}
+
+.required {
+  color: red;
+}
+h1{
+  text-align: center;
+  align-content: center;
+  background-color: #2F174F;
+  color: white;
+  height: 70px;
+}
+.error-message {
+  color: red;
+  font-size: small;
+}
+
+
+@media (max-width: 720px) {
+  .form-row {
+    flex-direction: column;
+  }
+}

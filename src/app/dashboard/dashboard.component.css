@@ -1,0 +1,11 @@
+.dashboard {
+  padding: 20px;
+}
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.charts {
+  margin-top: 20px;
+}

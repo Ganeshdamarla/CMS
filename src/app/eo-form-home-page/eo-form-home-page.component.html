@@ -1,0 +1,74 @@
+<div class="title">
+    <h1>EO-HOME</h1>
+</div>
+
+<!-- Button for navigating to EO Form -->
+<div class="eo-form-button-container">
+    
+</div>
+
+<div class="statusButton">
+    <button class="btns" (click)="showComplaints()">List of Complaints</button>
+    <!-- <button class="btns" [ngClass]="{ 'clicked': eoFormClicked }" (click)="navigateToEOForm()">EO Form</button> -->
+    <button class="btns" (click)="logout()">Logout</button>
+</div>
+
+<div *ngIf="complaintsVisible" class="table-container">
+    <table>
+        <thead>
+            <tr>
+          <th>S.NO</th>
+          <th>Complaint ID</th>
+          <th>Name</th>
+          <th>District</th>
+          <th>Mandal</th>
+          <th>Village</th>
+          <th>Details</th>
+          <th>Status</th>
+          <th>Assigned To</th>
+          <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let complaint of complaints; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ complaint.id }}</td>
+          <td>{{ complaint.name }}</td>
+          <td>{{ complaint.district }}</td>
+          <td>{{ complaint.mandal }}</td>
+          <td>{{ complaint.village }}</td>
+          <td>{{ complaint.details }}</td>
+          <td>{{ complaint.status }}</td>
+          <td>{{ complaint.assignedTo }}</td>
+          <td>
+                    <span (click)="toggleActionButtons(complaint)" style="cursor: pointer;">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <div *ngIf="complaint.showActions" class="action-buttons">
+                        <button (click)="assignComplaint(complaint)" >Assign</button>
+                        <button class="delete-button" (click)="deleteComplaint(complaint)">Delete</button>
+                        <button class="view-button" (click)="viewComplaint(complaint)">View</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div *ngIf="modalVisible && selectedComplaint" class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>Complaint Status Details</h2>
+        <div>
+            <p><strong>Complaint ID:</strong> {{ selectedComplaint.id }}</p> <!-- Display complaint ID -->
+            <p><strong>Status:</strong> {{ selectedComplaint.status }}</p>
+            <p><strong>Date:</strong> 13/06/2024</p>
+            <p><strong>Time:</strong> 12:00pm</p>
+        </div>
+        <div class="statusBtn">
+            <button (click)="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
